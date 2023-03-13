@@ -1,11 +1,20 @@
-import { CustomMap } from "./CustomMap";
-import { User } from "./User";
-import { Company } from './Company';
+import { Sorter_2, Sorter } from './Sorter';
+// import { NumbersCollection } from "./Number.Collection"
+// import { CaractersCollection } from "./Caracter.collection"
+import { LinkedList } from "./LinkList"
 
 
-const user=new User()
-const company= new Company()
-const customMap=new CustomMap("map")
-
-customMap.addMarker(user)
-customMap.addMarker(company)
+const linkList=new LinkedList()
+// const sorter=new Sorter_2(linkList)
+linkList.add(1)
+linkList.add(1)
+linkList.add(1)
+linkList.add(1)
+linkList.add(1)
+linkList.add(9)
+linkList.add(3)
+linkList.add(6)
+linkList.add(8)
+linkList.add(8)
+linkList.sort()
+linkList.printNode()
