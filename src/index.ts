@@ -1,20 +1,18 @@
-import { Sorter_2, Sorter } from './Sorter';
-// import { NumbersCollection } from "./Number.Collection"
-// import { CaractersCollection } from "./Caracter.collection"
-import { LinkedList } from "./LinkList"
+import { CsvFileReader_2 } from "./CsvFileRender"
+import { Matchreader } from "./inheritance/Match.reader"
+import { ConsoleReport } from "./reportTarget/CosoleReport"
+import { htmlReport } from "./reportTarget/HtmlReport"
+import { WinAnalysis } from "./analysis.ts/winAnalysis"
+import { Summary } from "./Summary"
 
+const footballread=new CsvFileReader_2('football.csv')
+const reader=new Matchreader(footballread)
+reader.load()
+const matchData=reader.matche
 
-const linkList=new LinkedList()
-// const sorter=new Sorter_2(linkList)
-linkList.add(1)
-linkList.add(1)
-linkList.add(1)
-linkList.add(1)
-linkList.add(1)
-linkList.add(9)
-linkList.add(3)
-linkList.add(6)
-linkList.add(8)
-linkList.add(8)
-linkList.sort()
-linkList.printNode()
+const sumary=new Summary(
+    new WinAnalysis("Man United"),
+    new ConsoleReport()
+)
+
+sumary.buildAndReport(matchData)

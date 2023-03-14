@@ -1,19 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import { NumbersCollection } from "./Number.Collection"
-// import { CaractersCollection } from "./Caracter.collection"
-const LinkList_1 = require("./LinkList");
-const linkList = new LinkList_1.LinkedList();
-// const sorter=new Sorter_2(linkList)
-linkList.add(1);
-linkList.add(1);
-linkList.add(1);
-linkList.add(1);
-linkList.add(1);
-linkList.add(9);
-linkList.add(3);
-linkList.add(6);
-linkList.add(8);
-linkList.add(8);
-linkList.sort();
-linkList.printNode();
+const CsvFileRender_1 = require("./CsvFileRender");
+const Match_reader_1 = require("./inheritance/Match.reader");
+const CosoleReport_1 = require("./reportTarget/CosoleReport");
+const winAnalysis_1 = require("./analysis.ts/winAnalysis");
+const Summary_1 = require("./Summary");
+const footballread = new CsvFileRender_1.CsvFileReader_2('football.csv');
+const reader = new Match_reader_1.Matchreader(footballread);
+reader.load();
+const matchData = reader.matche;
+const sumary = new Summary_1.Summary(new winAnalysis_1.WinAnalysis("Man United"), new CosoleReport_1.ConsoleReport());
+sumary.buildAndReport(matchData);
