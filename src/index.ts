@@ -1,18 +1,59 @@
-import { CsvFileReader_2 } from "./CsvFileRender"
-import { Matchreader } from "./inheritance/Match.reader"
-import { ConsoleReport } from "./reportTarget/CosoleReport"
-import { htmlReport } from "./reportTarget/HtmlReport"
-import { WinAnalysis } from "./analysis.ts/winAnalysis"
-import { Summary } from "./Summary"
+//Example of generics with class
 
-const footballread=new CsvFileReader_2('football.csv')
-const reader=new Matchreader(footballread)
-reader.load()
-const matchData=reader.matche
-
-const sumary=new Summary(
-    new WinAnalysis("Man United"),
-    new ConsoleReport()
-)
-
-sumary.buildAndReport(matchData)
+class ArrayOfNumber{
+    constructor(public collection:number[]){
+    }
+    get(index:number):number{
+        return this.collection[index]
+    }
+}
+class ArrayOfString{
+    constructor(public collection:string[]){
+    }
+    get(index:number):string{
+        return this.collection[index]
+    }
+}
+class ArayOfAnything<T>{
+    constructor(public collection:T[]){
+    }
+    get(index:number):T{
+        return this.collection[index]
+    }
+}
+//Example of generics with functions
+function printStrings(arr:string[]):void{
+    for(let i=0;i< arr.length;i++){
+        console.log(arr[i])
+    }
+}
+function printNumber(arr:number[]):void{
+    for(let i=0;i< arr.length;i++){
+        console.log(arr[i])
+    }
+}
+function printAnything<T>(arr:T[]):void{
+    for(let i=0;i< arr.length;i++){
+        console.log(arr[i])
+    }
+}
+//Generic Constraints
+class Car{
+    print(){
+        console.log("I am a car")
+    }
+}
+class House{
+    print(){
+        console.log("I am a Haouse")
+    }
+}
+interface IntPrintable{
+    print():void
+}
+function printHouseOrcars<T extends IntPrintable>(arr:T[]):void{
+    for (let i=0;i<arr.length;i++){
+        arr[i].print()//T is't has print function 
+    }
+}
+printHouseOrcars([new House(),new House(),new House(),new House(),new House(),new Car()])

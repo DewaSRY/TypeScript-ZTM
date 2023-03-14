@@ -1,13 +1,59 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileRender_1 = require("./CsvFileRender");
-const Match_reader_1 = require("./inheritance/Match.reader");
-const CosoleReport_1 = require("./reportTarget/CosoleReport");
-const winAnalysis_1 = require("./analysis.ts/winAnalysis");
-const Summary_1 = require("./Summary");
-const footballread = new CsvFileRender_1.CsvFileReader_2('football.csv');
-const reader = new Match_reader_1.Matchreader(footballread);
-reader.load();
-const matchData = reader.matche;
-const sumary = new Summary_1.Summary(new winAnalysis_1.WinAnalysis("Man United"), new CosoleReport_1.ConsoleReport());
-sumary.buildAndReport(matchData);
+//Example of generics with class
+class ArrayOfNumber {
+    constructor(collection) {
+        this.collection = collection;
+    }
+    get(index) {
+        return this.collection[index];
+    }
+}
+class ArrayOfString {
+    constructor(collection) {
+        this.collection = collection;
+    }
+    get(index) {
+        return this.collection[index];
+    }
+}
+class ArayOfAnything {
+    constructor(collection) {
+        this.collection = collection;
+    }
+    get(index) {
+        return this.collection[index];
+    }
+}
+//Example of generics with functions
+function printStrings(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+function printNumber(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+function printAnything(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+}
+//Generic Constraints
+class Car {
+    print() {
+        console.log("I am a car");
+    }
+}
+class House {
+    print() {
+        console.log("I am a Haouse");
+    }
+}
+function printHouseOrcars(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i].print(); //T is't has print function 
+    }
+}
+printHouseOrcars([new House(), new House(), new House(), new House(), new House(), new Car()]);
