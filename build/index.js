@@ -1,13 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileRender_1 = require("./CsvFileRender");
-const Match_reader_1 = require("./inheritance/Match.reader");
-const CosoleReport_1 = require("./reportTarget/CosoleReport");
-const winAnalysis_1 = require("./analysis.ts/winAnalysis");
-const Summary_1 = require("./Summary");
-const footballread = new CsvFileRender_1.CsvFileReader_2('football.csv');
-const reader = new Match_reader_1.Matchreader(footballread);
-reader.load();
-const matchData = reader.matche;
-const sumary = new Summary_1.Summary(new winAnalysis_1.WinAnalysis("Man United"), new CosoleReport_1.ConsoleReport());
-sumary.buildAndReport(matchData);
+// import {Sorter,NumberCollection,CaracterCollection} from './sorter'
+// const numbers=new NumberCollection([-1,-5,10,7,6])
+// const characters=new CaracterCollection('nama saya dewa')
+// const sort=new Sorter(numbers)
+// const sort1=new Sorter(characters)
+// sort.sort()
+// sort1.sort()
+// console.log(sort.collection)
+// console.log(sort1.collection)

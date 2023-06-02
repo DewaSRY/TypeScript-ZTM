@@ -1,18 +1,9 @@
-import { CsvFileReader_2 } from "./CsvFileRender"
-import { Matchreader } from "./inheritance/Match.reader"
-import { ConsoleReport } from "./reportTarget/CosoleReport"
-import { htmlReport } from "./reportTarget/HtmlReport"
-import { WinAnalysis } from "./analysis.ts/winAnalysis"
-import { Summary } from "./Summary"
-
-const footballread=new CsvFileReader_2('football.csv')
-const reader=new Matchreader(footballread)
-reader.load()
-const matchData=reader.matche
-
-const sumary=new Summary(
-    new WinAnalysis("Man United"),
-    new ConsoleReport()
-)
-
-sumary.buildAndReport(matchData)
+// import {Sorter,NumberCollection,CaracterCollection} from './sorter'
+// const numbers=new NumberCollection([-1,-5,10,7,6])
+// const characters=new CaracterCollection('nama saya dewa')
+// const sort=new Sorter(numbers)
+// const sort1=new Sorter(characters)
+// sort.sort()
+// sort1.sort()
+// console.log(sort.collection)
+// console.log(sort1.collection)
