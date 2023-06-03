@@ -1,13 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CsvFileRender_1 = require("./CsvFileRender");
-const Match_reader_1 = require("./inheritance/Match.reader");
-const CosoleReport_1 = require("./reportTarget/CosoleReport");
-const winAnalysis_1 = require("./analysis.ts/winAnalysis");
-const Summary_1 = require("./Summary");
-const footballread = new CsvFileRender_1.CsvFileReader_2('football.csv');
-const reader = new Match_reader_1.Matchreader(footballread);
-reader.load();
-const matchData = reader.matche;
-const sumary = new Summary_1.Summary(new winAnalysis_1.WinAnalysis("Man United"), new CosoleReport_1.ConsoleReport());
-sumary.buildAndReport(matchData);
+const inheratance_1 = require("./parser/inheratance");
+const composition_1 = require("./parser/composition");
+const read = new inheratance_1.ReadFootbal('./data/football.csv').readFootbal();
+const summary = new composition_1.Summary(new composition_1.WinAnalisis("Man United"), new composition_1.ConsoleReport());
+summary.buildAndPrintReport(read);
