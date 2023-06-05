@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "dewasurya",
+      "age": 96,
+      "id": 1
+    },
+    {
+      "name": "dewa",
+      "age": 18,
+      "id": 2
+    },
+    {
+      "name": "Surya",
+      "age": 18,
+      "id": 3
+    }
+  ]
+}
